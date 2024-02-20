@@ -117,8 +117,7 @@ def clear_book(buy = None, sell = None):
     """
     while buy and sell:
         order, size, _ = buy[0]
-        new_book = clear_order(order, size, sell)
-        if new_book:
+        if new_book := clear_order(order, size, sell):
             sell = new_book[1]
             buy  = buy[1:]
         else:
